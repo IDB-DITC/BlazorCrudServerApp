@@ -1,0 +1,30 @@
+﻿@page "/add-person"
+
+@inject PersonContext db
+@inject NavigationManager navManager
+
+<h2>
+	Add Person
+</h2>
+
+
+
+
+<div>
+
+	<label for="txtName">Name:</label>
+   @*  <input id="txtName" class="form-control" @bind="@person.PersonName"/> *@
+
+	<InputText id="txtName"  class="form-control" @bind-Value="@person.PersonName"></InputText>
+
+    <button class="btn btn-success " @onclick="SavePerson"  >Save</button>
+	
+
+
+
+
+</div>
+
+
+
+

@@ -1,0 +1,67 @@
+﻿@page "/ppl"
+@inject PersonContext db
+
+
+<h3>People Data</h3>
+
+<div>
+	@* <a class="nav-link" href="/add-person">Create</a> *@
+
+	 <NavLink class="btn btn-info nav-link" href="add-person">
+		 Add
+	 </NavLink>
+
+
+</div>
+	
+
+
+
+<table class="table table-responsive table-dark">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Operation</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Person person in people)
+		{
+
+
+			<tr>
+				<td>@person.Id</td>
+				<td>@person.PersonName</td>
+				<td>
+					<a class="nav-link" href="/edit/@person.Id">Edit</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+
+
+@code {
+
+
+	List<Person> people = new List<Person>();
+
+
+	protected override async Task OnInitializedAsync()
+	{
+
+		people = db.People.ToList();
+
+
+
+
+
+
+	}
+
+	
+
+
+}
